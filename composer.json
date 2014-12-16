@@ -12,11 +12,13 @@
 		"classmap": [
 			"app/commands",
 			"app/controllers",
-			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+        "psr-4": {
+            "G6\\FoundedInMk\\": "app/FoundedInMk"
+        }
 	},
 	"scripts": {
 		"post-install-cmd": [
