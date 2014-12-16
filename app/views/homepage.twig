@@ -1,0 +1,11 @@
+{% include 'header.twig' %}
+
+<h2>Startups</h2>
+
+{% for startup in startups %}
+
+    {{ startup.name }} - {{ startup.url }} <br />
+
+{% endfor %}
+
+{% include 'footer.twig' %}

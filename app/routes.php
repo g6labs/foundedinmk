@@ -11,7 +11,4 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', ['uses' => 'PublicController@index', 'as' => 'public.index']);
