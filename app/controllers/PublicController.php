@@ -13,6 +13,17 @@ class PublicController extends BaseController
 
     public function create()
     {
+        $input = Input::all();
 
+        /** @todo Validate the input */
+
+        $startup = Startup::create($input);
+
+        /** @todo Return json, as this method should be called via ajax */
+
+        Session::flash('startup-inserted', true);
+
+        return Redirect::route('public.index');
     }
 }
+

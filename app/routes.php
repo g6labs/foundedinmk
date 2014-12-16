@@ -11,4 +11,5 @@
 |
 */
 
-Route::get('/', ['uses' => 'PublicController@index', 'as' => 'public.index']);
+Route::get( '/', ['uses' => 'PublicController@index',  'as' => 'public.index']);
+Route::post('/', ['uses' => 'PublicController@create', 'as' => 'public.create']);

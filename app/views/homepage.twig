@@ -1,5 +1,26 @@
 {% include 'header.twig' %}
 
+<h2>Add your startup to the list</h2>
+
+{% if inserted is defined %}
+    <h3>Your startup was added to the list but needs to be approved before showing here.</h3>
+{% endif %}
+
+<form action="{{ route('public.create') }}" method="post">
+    Name: <input type="text" name="name"><br />
+    Year founded: <input type="text" name="founded"><br />
+    Website: <input type="text" name="url" /><br />
+    Twitter: @<input type="text" name="twitter" /><br />
+    URL to high-res logo: <input type="text" name="logo" /><br />
+    Contact name: <input type="text" name="contact_name" /> (optional) <br />
+    Contact email: <input type="email" name="contact_email" /> (optional) <br />
+
+    <br />
+
+    <input type="submit" name="add" value="Add it!" />
+
+</form>
+
 <h2>Startups</h2>
 
 {% for startup in startups %}
