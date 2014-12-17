@@ -18,6 +18,8 @@ Route::group(['prefix' => 'admin'], function()
             Route::get(   '/',             ['uses' => 'StartupsController@index',           'as' => 'admin.startups.index']);
             Route::delete('/{id}',         ['uses' => 'StartupsController@delete',          'as' => 'admin.startups.delete']);
             Route::get(   '/{id}/feature', ['uses' => 'StartupsController@toggleFeatured',  'as' => 'admin.startups.feature']);
+            Route::get(   '/{id}/approve', ['uses' => 'StartupsController@approve',         'as' => 'admin.startups.approve']);
+            Route::get(   '/{id}/decline', ['uses' => 'StartupsController@decline',         'as' => 'admin.startups.decline']);
         });
 
     });

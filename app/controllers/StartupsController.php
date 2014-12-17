@@ -47,4 +47,51 @@ class StartupsController extends BaseController
 
         return Response::json($data);
     }
+
+    public function approve($id)
+    {
+        $startup = Startup::find($id);
+
+        if (!$startup) {
+            $data = [
+                "status" => "warning",
+                "message" => "There was some error with your request"
+            ];
+        }
+
+        $startup->approved = true;
+        $startup->save();
+
+        $data = [
+            "status" => "success",
+            "message" => "The startup was successfully approved."
+        ];
+
+        /** @todo Send an email to the submitter */
+
+        return Response::json($data);
+    }
+
+    public function decline($id)
+    {
+        $startup = Startup::find($id);
+
+        if (!$startup) {
+            $data = [
+                "status" => "warning",
+                "message" => "There was some error with your request"
+            ];
+        }
+
+        $startup->delete();
+
+        $data = [
+            "status" => "success",
+            "message" => "The startup was successfully declined."
+        ];
+
+        /** @todo Send an email to the submitter */
+
+        return Response::json($data);
+    }
 } 
