@@ -15,7 +15,7 @@ class UsersController extends BaseController
     {
         $data = Input::all();
         $data['password'] = Hash::make($data['password']);
-        $user = User::create(Input::all());
+        $user = User::create($data);
 
         return Redirect::route('admin.users.index');
     }

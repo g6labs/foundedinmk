@@ -12,7 +12,7 @@ class AuthController extends BaseController
         $credentials = Input::only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            Redirect::route('admin.index');
+            return Redirect::route('admin.index');
         }
 
         Session::flash('error', 'Wrong credentials.');
