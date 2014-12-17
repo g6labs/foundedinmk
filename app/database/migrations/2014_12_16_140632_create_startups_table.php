@@ -19,7 +19,8 @@ class CreateStartupsTable extends Migration {
             $table->integer('founded');
             $table->string('url');
             $table->string('twitter');
-            $table->string('logo');
+            $table->string('logo_url');
+            $table->string('logo')->nullable();
             $table->string('contact_name')->nullable();
             $table->string('contact_email')->nullable();
             $table->boolean('approved')->default(false);

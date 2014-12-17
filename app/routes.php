@@ -20,7 +20,8 @@ Route::group(['prefix' => 'admin'], function()
             Route::get(   '/{id}/feature', ['uses' => 'StartupsController@toggleFeatured',  'as' => 'admin.startups.feature']);
             Route::get(   '/{id}/approve', ['uses' => 'StartupsController@approve',         'as' => 'admin.startups.approve']);
             Route::get(   '/{id}/decline', ['uses' => 'StartupsController@decline',         'as' => 'admin.startups.decline']);
+            Route::get(   '/{id}/edit',    ['uses' => 'StartupsController@edit',            'as' => 'admin.startups.edit']);
+            Route::post(  '/{id}/update',  ['uses' => 'StartupsController@update',          'as' => 'admin.startups.update']);
         });
-
     });
 });

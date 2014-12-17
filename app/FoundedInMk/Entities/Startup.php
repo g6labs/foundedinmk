@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Startup extends Model
 {
     protected $table = "startups";
-    protected $fillable = ["name", "founded", "url", "twitter", "logo", "contact_name", "contact_email"];
+    protected $fillable = ["name", "founded", "url", "twitter", "logo_url", "contact_name", "contact_email"];
     protected $hidden = ["contact_name", "contact_email"];
 }

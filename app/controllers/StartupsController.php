@@ -94,4 +94,30 @@ class StartupsController extends BaseController
 
         return Response::json($data);
     }
+
+    public function edit($id)
+    {
+        $startup = Startup::find($id);
+
+        return View::make('admin.startups.edit', compact('startup'));
+    }
+
+    public function update($id)
+    {
+        $startup = Startup::find($id);
+        $startup->fill(Input::all());
+
+        if (Input::hasFile('logo')) {
+            $logo = Input::file('logo');
+            $fileName =  md5($logo->getClientOriginalName()) . "." . $logo->getClientOriginalExtension();
+            $logo->move(public_path() . "/static/logos/" . md5($startup->name), $fileName);
+            $startup->logo = md5($startup->name) . "/". $fileName;
+        }
+
+
+        $startup->save();
+
+        return Redirect::route('admin.startups.index');
+
+    }
 } 
