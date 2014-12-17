@@ -1,0 +1,19 @@
+{% include 'header.twig' %}
+
+<h2>Login:</h2>
+
+{% if Session.has('error') %}
+    <p>{{ Session.get('error') }}</p>
+{% endif %}
+
+<form action="{{ route('auth.login') }}" method="post">
+    Email: <input type="email" name="email" /><br />
+    Password: <input type="password" name="password" /><br />
+
+    <br />
+
+    <input type="submit" name="login" value="Login" />
+
+</form>
+
+{% include 'footer.twig' %}
