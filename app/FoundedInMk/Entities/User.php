@@ -11,4 +11,5 @@ class User extends Model implements UserInterface
     use UserTrait;
 
     protected $table = "users";
+    protected $fillable = ["name", "email", "password"];
 }

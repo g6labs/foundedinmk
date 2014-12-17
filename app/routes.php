@@ -23,5 +23,11 @@ Route::group(['prefix' => 'admin'], function()
             Route::get(   '/{id}/edit',    ['uses' => 'StartupsController@edit',            'as' => 'admin.startups.edit']);
             Route::post(  '/{id}/update',  ['uses' => 'StartupsController@update',          'as' => 'admin.startups.update']);
         });
+
+        Route::group(['prefix' => 'users'], function() {
+            Route::get( '/',            ['uses' => 'UsersController@index',  'as' => 'admin.users.index']);
+            Route::post('/',            ['uses' => 'UsersController@create', 'as' => 'admin.users.create']);
+            Route::get( '/{id}/delete', ['uses' => 'UsersController@delete', 'as' => 'admin.users.delete']);
+        });
     });
 });
