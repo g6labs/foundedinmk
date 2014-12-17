@@ -1,10 +1,54 @@
 {% include 'admin/header.twig' %}
 
-<h2>Startups</h2>
+<h1>Startups</h1>
 
-{% for startup in startups %}
-    {{ startup.name }}<br />
-    {# will add the other fields after the design is here #}
-{% endfor %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Year founded</th>
+            <th>Url</th>
+            <th>Twitter</th>
+            <th>Contact name</th>
+            <th>Contact email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for startup in startups %}
+        <tr>
+            <td>{{ startup.id }}</td>
+            <td>{{ startup.name }}</td>
+            <td>{{ startup.founded }}</td>
+            <td><a href="{{ startup.url }}" target="_blank">{{ startup.url }}</a></td>
+            <td><a href="https://twitter.com/{{ startup.twitter }}" target="_blank">@{{ startup.twitter }}</a></td>
+            <td>{{ startup.contact_name }}</td>
+            <td>{{ startup.contact_email }}</td>
+            <td>
+                {% if startup.approved == false %}
+                    <a href="#" class="btn btn-success btn-xs">Approve</a>
+                    <a href="#" class="btn btn-warning btn-xs">Decline</a>
+                {% endif %}
+
+                {% if startup.featured %}
+                    <a href="#" class="btn btn-default btn-xs" title="This startup is featured">
+                        <i class="glyphicon glyphicon-star"></i>
+                    </a>
+                {% else %}
+                    <a href="#" class="btn btn-default btn-xs" title="Click to make this startup featured">
+                        <i class="glyphicon glyphicon-star-empty"></i>
+                    </a>
+                {% endif %}
+
+                <a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="#" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
 
 {% include 'admin/footer.twig' %}
