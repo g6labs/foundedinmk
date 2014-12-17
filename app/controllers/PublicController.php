@@ -15,15 +15,34 @@ class PublicController extends BaseController
     {
         $input = Input::all();
 
-        /** @todo Validate the input */
+        $validator = Validator::make($input,
+            [
+                'name' => 'required',
+                'founded' => 'required|digits:4',
+                'url' => 'required|url',
+                'twitter' => 'required|alpha_dash',
+                'logo_url' => 'required|url',
+                'contact_name' => 'alpha',
+                'contact_email' => 'email'
+            ]
+        );
+
+        if ($validator->fails()) {
+            $data['status'] = 'warning';
+            //$data['message'] = "Please enter valid information";
+            $data['message'] = $validator->messages()->first();
+
+            return Response::json($data);
+        }
 
         $startup = Startup::create($input);
 
         /** @todo Return json, as this method should be called via ajax */
 
-        Session::flash('startup-inserted', true);
+        $data['status'] = 'success';
+        $data['message'] = "Startup submitted and waiting to be approved.";
 
-        return Redirect::route('public.index');
+        return Response::json($data);
     }
 }
 

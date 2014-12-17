@@ -7,17 +7,17 @@
 {% endif %}
 
 <form action="{{ route('public.create') }}" method="post">
-    Name: <input type="text" name="name"><br />
-    Year founded: <input type="text" name="founded"><br />
-    Website: <input type="text" name="url" /><br />
-    Twitter: @<input type="text" name="twitter" /><br />
-    URL to high-res logo: <input type="text" name="logo_url" /><br />
-    Contact name: <input type="text" name="contact_name" /> (optional) <br />
-    Contact email: <input type="email" name="contact_email" /> (optional) <br />
+    Name: <input type="text" id="name" name="name"><br />
+    Year founded: <input type="text" id="founded" name="founded"><br />
+    Website: <input type="text" id="url" name="url" /><br />
+    Twitter: @<input type="text" id="twitter" name="twitter" /><br />
+    URL to high-res logo: <input type="text" id="logo_url" name="logo_url" /><br />
+    Contact name: <input type="text" id="contact_name" name="contact_name" /> (optional) <br />
+    Contact email: <input type="email" id="contact_email" name="contact_email" /> (optional) <br />
 
     <br />
 
-    <input type="submit" name="add" value="Add it!" />
+    <input type="submit" name="add" value="Add it!" class="btn-submit-startup" />
 
 </form>
 
