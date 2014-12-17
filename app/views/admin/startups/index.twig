@@ -38,11 +38,11 @@
                 {% endif %}
 
                 {% if startup.featured %}
-                    <a href="#" class="btn btn-default btn-xs" title="This startup is featured">
+                    <a href="{{ route('admin.startups.feature', startup.id) }}" class="btn btn-default btn-xs btn-feature-startup" title="This startup is featured">
                         <i class="glyphicon glyphicon-star"></i>
                     </a>
                 {% else %}
-                    <a href="#" class="btn btn-default btn-xs" title="Click to make this startup featured">
+                    <a href="{{ route('admin.startups.feature', startup.id) }}" class="btn btn-default btn-xs btn-feature-startup" title="Click to make this startup featured">
                         <i class="glyphicon glyphicon-star-empty"></i>
                     </a>
                 {% endif %}

@@ -25,4 +25,26 @@ class StartupsController extends BaseController
 
         return Response::json($data);
     }
+
+    public function toggleFeatured($id)
+    {
+        $startup = Startup::find($id);
+
+        if (!$startup) {
+            $data = [
+                "status" => "warning",
+                "message" => "There was some error with your request"
+            ];
+        }
+
+        $startup->featured = !$startup->featured;
+        $startup->save();
+
+        $data = [
+            "status" => "success",
+            "message" => "The startup was successfully changed."
+        ];
+
+        return Response::json($data);
+    }
 } 
