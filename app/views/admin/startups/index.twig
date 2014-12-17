@@ -1,0 +1,10 @@
+{% include 'admin/header.twig' %}
+
+<h2>Startups</h2>
+
+{% for startup in startups %}
+    {{ startup.name }}<br />
+    {# will add the other fields after the design is here #}
+{% endfor %}
+
+{% include 'admin/footer.twig' %}

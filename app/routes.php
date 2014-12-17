@@ -13,5 +13,10 @@ Route::group(['prefix' => 'admin'], function()
     Route::group(['before' => 'auth'], function() {
         Route::get('/auth/logout', ['uses' => 'AuthController@logout', 'as' => 'auth.logout']);
         Route::get('/',            ['uses' => 'AdminController@index', 'as' => 'admin.index']);
+
+        Route::group(['prefix' => 'startups'], function() {
+            Route::get('/', ['uses' => 'StartupsController@index', 'as' => 'admin.startups.index']);
+        });
+
     });
 });
