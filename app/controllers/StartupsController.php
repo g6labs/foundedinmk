@@ -35,6 +35,8 @@ class StartupsController extends BaseController
                 "status" => "warning",
                 "message" => "There was some error with your request"
             ];
+
+            return Response::json($data);
         }
 
         $startup->featured = !$startup->featured;
@@ -57,6 +59,8 @@ class StartupsController extends BaseController
                 "status" => "warning",
                 "message" => "There was some error with your request"
             ];
+
+            return Response::json($data);
         }
 
         $startup->approved = true;
@@ -81,6 +85,8 @@ class StartupsController extends BaseController
                 "status" => "warning",
                 "message" => "There was some error with your request"
             ];
+
+            return Response::json($data);
         }
 
         $startup->delete();

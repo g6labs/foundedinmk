@@ -85,8 +85,8 @@ $(function(){
                         .addClass('alert-' + data.status)
                         .show();
 
-                    $('.btn-approve-startup').hide();
-                    $('.btn-decline-startup').hide();
+                    btn.hide();
+                    btn.siblings('.btn-decline-startup').hide();
 
                 }
             });
