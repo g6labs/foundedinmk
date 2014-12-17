@@ -11,6 +11,7 @@ Route::group(['prefix' => 'admin'], function()
     });
 
     Route::group(['before' => 'auth'], function() {
-        Route::get('/', ['uses' => 'AdminController@index', 'as' => 'admin.index']);
+        Route::get('/auth/logout', ['uses' => 'AuthController@logout', 'as' => 'auth.logout']);
+        Route::get('/',            ['uses' => 'AdminController@index', 'as' => 'admin.index']);
     });
 });
