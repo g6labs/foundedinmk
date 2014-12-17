@@ -15,7 +15,8 @@ Route::group(['prefix' => 'admin'], function()
         Route::get('/',            ['uses' => 'AdminController@index', 'as' => 'admin.index']);
 
         Route::group(['prefix' => 'startups'], function() {
-            Route::get('/', ['uses' => 'StartupsController@index', 'as' => 'admin.startups.index']);
+            Route::get(   '/',     ['uses' => 'StartupsController@index',  'as' => 'admin.startups.index']);
+            Route::delete('/{id}', ['uses' => 'StartupsController@delete', 'as' => 'admin.startups.delete']);
         });
 
     });

@@ -2,6 +2,11 @@
 
 <h1>Startups</h1>
 
+<div class="" id="action-status" style="display: none;">
+    <a class="close" data-hide="alert" href="#">×</a>
+    <span id="action-message"></span>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -43,7 +48,9 @@
                 {% endif %}
 
                 <a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
-                <a href="#" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+                <a href="{{ route('admin.startups.delete', startup.id) }}" class="btn btn-danger btn-xs btn-delete-startup" data-startup="{{ startup.id }}">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
             </td>
         </tr>
     {% endfor %}
