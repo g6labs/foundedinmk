@@ -28,7 +28,7 @@ class CreateStartupsTable extends Migration {
 			$table->timestamps();
 
             /**
-             * @todo Add index on url friend it it's used for searching and linking to startups
+             * @todo Add index on url field it it's used for searching and linking to startups
              */
 		});
 	}
