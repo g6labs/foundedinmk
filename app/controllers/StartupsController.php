@@ -115,9 +115,10 @@ class StartupsController extends BaseController
 
         if (Input::hasFile('logo')) {
             $logo = Input::file('logo');
+            $startupNameHash = md5($startup->name);
             $fileName =  md5($logo->getClientOriginalName()) . "." . $logo->getClientOriginalExtension();
-            $logo->move(public_path() . "/static/logos/" . md5($startup->name), $fileName);
-            $startup->logo = md5($startup->name) . "/". $fileName;
+            $logo->move(public_path() . "/static/logos/" . $startupNameHash, $fileName);
+            $startup->logo = $startupNameHash . "/". $fileName;
         }
 
 
