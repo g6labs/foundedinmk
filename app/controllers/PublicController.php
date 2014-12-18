@@ -6,9 +6,11 @@ class PublicController extends BaseController
 {
 	public function index()
 	{
-        $startups = Startup::where('approved', true)->get()->all();
+        $featured = Startup::where('approved', true)->where('featured', true)->get()->all();
 
-		return View::make('homepage', compact('startups'));
+        $startups = Startup::where('approved', true)->where('featured', false)->get()->all();
+
+		return View::make('homepage', compact('startups', 'featured'));
 	}
 
     public function create()

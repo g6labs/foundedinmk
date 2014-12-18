@@ -1,6 +1,31 @@
-<hr />
-<p style="text-align: center; width: 100%">https://github.com/g6labs/foundedinmk</p>
-
-
 <script src="/static/assets/vendor/jquery/dist/jquery.min.js"></script>
 <script src="/static/assets/public.js"></script>
+
+
+<footer>
+            	<span>Brought to you by <a href="http://g6solutions.com" target="_blank">G6 Solutions</a>. All the logos and trademarks used on this website belong to its rightful owner.<br>
+                Thanks to <a href="http://www.callumctaylor.com.au/" target="_blank">Callum Taylor</a> for the tulip design.</span>
+    <a href="http://foundedx.com" class="no-link" target="_blank"><img src="/static/assets/foundedx-badge.png" alt="Part of Founded X"></a>
+</footer>
+</div>
+
+<!-- Smooth Scroll -->
+<script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

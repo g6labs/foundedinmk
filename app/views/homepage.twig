@@ -1,32 +1,101 @@
 {% include 'header.twig' %}
 
-<h2>Add your startup to the list</h2>
+<header class="clearfix">
+    {#<a href="http://foundedinholland.com" class="no-link"><img src="images/logo.png" alt="Logo"></a>#}
+    <h1>Founded in Holland - The most innovative startups in the Netherlands</h1>
+    <span>The Netherlands &mdash; Holland &mdash; has a <a href="http://www.usnews.com/opinion/economic-intelligence/2014/02/14/how-the-netherlands-built-a-thriving-startup-scene" target="_blank">thriving&nbsp;startup&nbsp;scene</a>. The surge of successful entrepreneurial endeavors has made the region one of <a href="http://www.wired.co.uk/magazine/archive/2014/09/european-startups/amsterdam/viewall" target="_blank">Europe's&nbsp;hottest&nbsp;startup&nbsp;hubs</a>. As part of <a href="http://foundedx.com" target="_blank">Founded&nbsp;X</a>, this list is a tribute to innovative startups that are proud of their <a href="https://www.youtube.com/watch?v=rzOzUHYwPms" target="_blank">Dutch&nbsp;roots</a>. <a href="about">Learn&nbsp;more</a> about the initiative.</span>
+    <span class="apply">Want to join this list? <a href="#join">Submit&nbsp;your&nbsp;Dutch&nbsp;startup.</a></span>
 
-{% if inserted is defined %}
-    <h3>Your startup was added to the list but needs to be approved before showing here.</h3>
+</header>
+
+{% if featured|length > 0 %}
+
+<br>
+<div class="featured-line">
+    <div class="featured-title" style="width:180px;">
+        <i class="fa fa-star-o"></i>&nbsp;&nbsp;&nbsp;Featured&nbsp;Startups
+    </div>
+</div>
+<br>
+
+    <ul class="cbp-rfgrid cbp-rfgrid2 clearfix">
+
+        {% for startup in featured %}
+
+            <li><a href="{{ startup.url }}" target="_blank"><img src="/static/logos/{{ startup.logo }}" /><div><h3>{{ startup.name }}</h3></div></a></li>
+
+        {% endfor %}
+
+    </ul>
+
 {% endif %}
 
-<form action="{{ route('public.create') }}" method="post">
-    Name: <input type="text" id="name" name="name"><br />
-    Year founded: <input type="text" id="founded" name="founded"><br />
-    Website: <input type="text" id="url" name="url" /><br />
-    Twitter: @<input type="text" id="twitter" name="twitter" /><br />
-    URL to high-res logo: <input type="text" id="logo_url" name="logo_url" /><br />
-    Contact name: <input type="text" id="contact_name" name="contact_name" /> (optional) <br />
-    Contact email: <input type="email" id="contact_email" name="contact_email" /> (optional) <br />
+<div class="featured-line">
+    <div class="featured-title" style="width:110px;">
+        All&nbsp;Startups
+    </div>
+</div>
+<br>
 
-    <br />
+<ul class="cbp-rfgrid">
 
-    <input type="submit" name="add" value="Add it!" class="btn-submit-startup" />
+    {% for startup in startups %}
 
-</form>
+        <li><a href="{{ startup.url }}" target="_blank"><img src="/static/logos/{{ startup.logo }}" /><div><h3>{{ startup.name }}</h3></div></a></li>
 
-<h2>Startups</h2>
+    {% endfor %}
 
-{% for startup in startups %}
+</ul>
 
-    {{ startup.name }} - {{ startup.url }} <br />
+<div class="join-box">
+    <a name="join" class="no-link"></a>
+                <span><strong>What do all these companies have in common?</strong><br>
+                1) They were founded in Holland in the 21st century<br>
+                2) They have the ambition to transform their industry<br>
+                3) The founders have never clubbed a baby seal<br><br><br>
+                Does your startup meet these criteria and do you want to support this initiative?<br>
+                <strong>Submit your Dutch startup by filling out the <a class="typeform-share link" href="https://weekly.typeform.com/to/HHO2Uc" data-mode="2" target="_blank">application&nbsp;form</a>.</strong>
+                <br><br><br>
+                <a class="typeform-share link join-button" href="#" data-mode="2" id="btn-join-form" target="_blank">Join&nbsp;the&nbsp;list</a></span>
 
-{% endfor %}
+                <div id="join-form" style="display: none">
+
+                    <form action="{{ route('public.create') }}" method="post">
+                    Name: <input type="text" id="name" name="name"><br />
+                    Year founded: <input type="text" id="founded" name="founded"><br />
+                    Website: <input type="text" id="url" name="url" /><br />
+                    Twitter: @<input type="text" id="twitter" name="twitter" /><br />
+                    URL to high-res logo: <input type="text" id="logo_url" name="logo_url" /><br />
+                    Contact name: <input type="text" id="contact_name" name="contact_name" /> (optional) <br />
+                    Contact email: <input type="email" id="contact_email" name="contact_email" /> (optional) <br />
+
+                    <br />
+
+                    <input type="submit" name="add" value="Add it!" class="btn-submit-startup" />
+
+                    </form>
+
+                </div>
+
+                <p id="join-msg"></p>
+
+    <br><br>
+
+    {#<a name="update" class="no-link"></a>#}
+    {#<span><strong>Just interested? Subscribe to receive updates directly into your mailbox.</strong></span>#}
+    {#<form style="text-align:center;" action="https://tinyletter.com/foundedinholland" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/foundedinholland', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">#}
+        {#<input type="text" name="email" id="tlemail" value="Email address" onfocus="if (this.value=='Email address'){this.value='';};return false;" onblur="if (this.value==''){this.value='Email address';return false;}" /> <input type="hidden" value="1" name="embed"/><input type="submit" value="Subscribe" class="submit" />#}
+    {#</form>#}
+
+    {#<br><br><br>#}
+
+    <span>Follow on <a href="https://www.facebook.com/foundedinholland" target="_blank"><i class="fa fa-facebook-square"></i>&nbsp;Facebook</a> &amp; <a href="https://twitter.com/foundedholland" target="_blank"><i class="fa fa-twitter-square"></i>&nbsp;Twitter</a> &nbsp;&middot;&nbsp; <a href="about">About&nbsp;the&nbsp;initiative</a> &nbsp;&middot;&nbsp; <a href="https://drive.google.com/folderview?id=0B7rp4qZAI1DoN3haMk0zTHA4aTg&usp=sharing" target="_blank">Press&nbsp;kit</a> &nbsp;&middot;&nbsp; <a href="faq">FAQ</a> &nbsp;&middot;&nbsp; <a href="advertise">Advertise</a> &nbsp;&middot;&nbsp; <a href="http://foundedinholland.spreadshirt.nl/" target="_blank">Shop</a> &nbsp;&middot;&nbsp; <a href="mailto:join@foundedinholland.com" target="_blank">Contact</a></span>
+
+    <div align="center" style="width:170px; margin:0 auto;">
+        <div class="fb-like" data-href="http://foundedinholland.com/" data-layout="button" data-action="like" data-show-faces="false" data-share="true" style="margin-bottom:-20px; padding:5px;"></div>
+        <div style="padding:5px;"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://foundedinholland.com/" data-via="foundedholland" data-count="none" data-dnt="true">Tweet</a></div>
+    </div>
+
+</div>
 
 {% include 'footer.twig' %}
