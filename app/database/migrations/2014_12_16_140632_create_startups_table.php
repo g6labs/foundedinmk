@@ -26,6 +26,10 @@ class CreateStartupsTable extends Migration {
             $table->boolean('approved')->default(false);
             $table->boolean('featured')->default(false);
 			$table->timestamps();
+
+            /**
+             * @todo Add index on url friend it it's used for searching and linking to startups
+             */
 		});
 	}
 
