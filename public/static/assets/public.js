@@ -1,6 +1,7 @@
 $(function() {
 
     $(document).on('click', '.btn-join-form', function () {
+        $(this).hide();
         $("#join-form").slideDown('slow');
 
         return false;

@@ -341,8 +341,14 @@ input.submit:hover {;
 .btn-submit-startup{
     padding-left: 2.1em;
     padding-right: 2.1em;
+    border: solid 1px #fff;
+    cursor: pointer;
 }
 
+.btn-submit-startup:hover {
+    color:#ef5624;
+    background-color:#fff;
+}
 
 header > h1{
     display: none;
