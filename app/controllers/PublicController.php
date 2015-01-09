@@ -42,6 +42,16 @@ class PublicController extends BaseController
 
         $startup = Startup::create($input);
 
+        if (Input::has('contact_email')) {
+            $email = $input['contact_email'];
+            Mail::send('emails.startup-submitted', [],
+                function($message) use ($email) {
+                    //$message->from('no-reply@mydomain.com', 'My Domain Sender');
+                    $message->to($email)->subject('Startup successfully submitted');
+                }
+            );
+        }
+
         $data['status'] = 'success';
         $data['message'] = "Startup submitted and waiting to be approved.";
 
