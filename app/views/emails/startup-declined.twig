@@ -1,3 +1,5 @@
+{% include 'emails/header.twig' %}
+
 <h1>Здраво,</h1>
 
 <p>За жал, вашата апликација за додавање на <strong>{{ startup.name }}</strong> во листата на стартапи на "Founded in Macedonia" e <strong>одбиена</strong>,
@@ -12,3 +14,5 @@
     Другарски поздрав,<br />
     Тимот на Founded in Macedonia
 </p>
+
+{% include 'emails/footer.twig' %}
