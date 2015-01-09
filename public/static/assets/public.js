@@ -16,8 +16,8 @@ $(function() {
             dataType: "json",
             data: {
                 name: $('#name').val(),
-                founded: $('#founded').val(),
-                url: $('#url').val(),
+                year_founded: $('#year_founded').val(),
+                website: $('#url').val(),
                 twitter: $('#twitter').val(),
                 logo_url: $('#logo_url').val(),
                 contact_name: $('#contact_name').val(),
@@ -29,7 +29,8 @@ $(function() {
                     $("#join-form").slideUp('slow');
                     $("#join-msg").html("Thank you! Your startup was added to the list but needs to be approved before showing here.")
                 } else {
-                    $("#join-msg").html("Please check your data and resubmit the form.");
+                    //console.log(data);
+                    $("#join-msg").html("<strong>Error:</strong> " + data.message);
                 }
 
             }

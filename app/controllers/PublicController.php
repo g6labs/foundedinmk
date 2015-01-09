@@ -20,8 +20,8 @@ class PublicController extends BaseController
         $validator = Validator::make($input,
             [
                 'name' => 'required',
-                'founded' => 'required|digits:4',
-                'url' => 'required|url',
+                'year_founded' => 'required|digits:4',
+                'website' => 'required|url',
                 'twitter' => 'required|alpha_dash',
                 'logo_url' => 'required|url',
                 'contact_name' => 'alpha',
@@ -37,9 +37,10 @@ class PublicController extends BaseController
             return Response::json($data);
         }
 
-        $startup = Startup::create($input);
+        $input['founded'] = $input['year_founded'];
+        $input['url'] = $input['website'];
 
-        /** @todo Return json, as this method should be called via ajax */
+        $startup = Startup::create($input);
 
         $data['status'] = 'success';
         $data['message'] = "Startup submitted and waiting to be approved.";
