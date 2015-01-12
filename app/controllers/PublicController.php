@@ -6,9 +6,9 @@ class PublicController extends BaseController
 {
 	public function index()
 	{
-        $featured = Startup::where('approved', true)->where('featured', true)->get()->all();
+        $featured = Startup::where('approved', true)->where('featured', true)->orderBy('name')->get()->all();
 
-        $startups = Startup::where('approved', true)->where('featured', false)->get()->all();
+        $startups = Startup::where('approved', true)->where('featured', false)->orderBy('name')->get()->all();
 
 		return View::make('homepage', compact('startups', 'featured'));
 	}
