@@ -8,7 +8,7 @@ $(function(){
         if (confirmed) {
 
             $.ajax({
-                type: 'delete',
+                type: 'get',
                 url: btn.attr('href'),
                 dataType: "json",
                 success:function(data){
