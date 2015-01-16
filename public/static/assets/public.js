@@ -7,6 +7,10 @@ $(function() {
         return false;
     });
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
     $(document).on('click', '.btn-submit-startup', function () {
         var btn = $(this);
 
