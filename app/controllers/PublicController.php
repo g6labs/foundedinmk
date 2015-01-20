@@ -1,6 +1,7 @@
 <?php
 
 use G6\FoundedInMk\Entities\Startup;
+use G6\FoundedInMk\Entities\User;
 
 class PublicController extends BaseController
 {
@@ -54,6 +55,14 @@ class PublicController extends BaseController
 
         $data['status'] = 'success';
         $data['message'] = "Startup submitted and waiting to be approved.";
+
+        $emails = User::all()->fetch('email')->all();
+
+        Mail::send('emails.startup-submitted-admins', ["startup" => $startup],
+            function($message) use ($startup, $emails) {
+                $message->to($emails)->subject('Startup submitted');
+            }
+        );
 
         return Response::json($data);
     }
