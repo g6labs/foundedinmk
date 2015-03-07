@@ -3,6 +3,8 @@
 Route::get( '/', ['uses' => 'PublicController@index',  'as' => 'public.index']);
 Route::post('/', ['uses' => 'PublicController@create', 'as' => 'public.create']);
 
+Route::post('/timeline', ['uses' => 'TimelineController@index', 'as' => 'public.index']);
+
 Route::group(['prefix' => 'admin'], function()
 {
     Route::group(['before' => 'guest'], function() {
