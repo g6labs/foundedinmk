@@ -32,10 +32,6 @@ class CreateEventsTable extends Migration {
 
         	$table->boolean('approved')->default(true);
         	$table->timestamps();
-
-            /**
-             * @todo Add index on url field it it's used for searching and linking to startups
-             */
 		});
 	}
 

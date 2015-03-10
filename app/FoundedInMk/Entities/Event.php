@@ -7,6 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $table = "events";
-    protected $fillable = ["name", "founded", "url", "twitter", "logo_url", "contact_name", "contact_email"];
-    protected $hidden = ["contact_name", "contact_email"];
+
+    protected $fillable = [
+    	"title_en",
+    	"title_local",
+    	"description_en",
+    	"description_local",
+    	"action_text_en",
+    	"action_text_local",
+    	"action_url",
+    	"event_date",
+    	"slug",
+    	"approved",
+	];
+
+    protected $hidden = ["approved"];
 }
