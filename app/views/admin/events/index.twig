@@ -1,0 +1,61 @@
+{% include 'admin/header.twig' %}
+
+<h1>Startups</h1>
+
+<div class="" id="action-status" style="display: none;">
+    <a class="close" data-hide="alert" href="#">×</a>
+    <span id="action-message"></span>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Year founded</th>
+            <th>Url</th>
+            <th>Twitter</th>
+            <th>Contact name</th>
+            <th>Contact email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    {% for startup in startups %}
+        <tr>
+            <td>{{ startup.id }}</td>
+            <td>{{ startup.name }}</td>
+            <td>{{ startup.founded }}</td>
+            <td><a href="{{ startup.url }}" target="_blank">{{ startup.url }}</a></td>
+            <td><a href="https://twitter.com/{{ startup.twitter }}" target="_blank">@{{ startup.twitter }}</a></td>
+            <td>{{ startup.contact_name }}</td>
+            <td>{{ startup.contact_email }}</td>
+            <td>
+                {% if startup.approved == false %}
+                    <a href="{{ route('admin.startups.approve', startup.id) }}" class="btn btn-success btn-xs btn-approve-startup">Approve</a>
+                    <a href="{{ route('admin.startups.decline', startup.id) }}" class="btn btn-warning btn-xs btn-decline-startup">Decline</a>
+                {% endif %}
+
+                {% if startup.featured %}
+                    <a href="{{ route('admin.startups.feature', startup.id) }}" class="btn btn-default btn-xs btn-feature-startup" title="This startup is featured">
+                        <i class="glyphicon glyphicon-star"></i>
+                    </a>
+                {% else %}
+                    <a href="{{ route('admin.startups.feature', startup.id) }}" class="btn btn-default btn-xs btn-feature-startup" title="Click to make this startup featured">
+                        <i class="glyphicon glyphicon-star-empty"></i>
+                    </a>
+                {% endif %}
+
+                <a href="{{ route('admin.startups.edit', startup.id) }}" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="{{ route('admin.startups.delete', startup.id) }}" class="btn btn-danger btn-xs btn-delete-startup" data-startup="{{ startup.id }}">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% include 'admin/footer.twig' %}

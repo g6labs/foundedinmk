@@ -1,6 +1,6 @@
 <?php
 
-use G6\FoundedInMk\Entities\User;
+use G6\FoundedInMk\Entities\Event;
 
 class EventSeeder extends Seeder{
 

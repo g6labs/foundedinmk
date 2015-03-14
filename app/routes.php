@@ -3,7 +3,7 @@
 Route::get( '/', ['uses' => 'PublicController@index',  'as' => 'public.index']);
 Route::post('/', ['uses' => 'PublicController@create', 'as' => 'public.create']);
 
-Route::post('/timeline', ['uses' => 'TimelineController@index', 'as' => 'public.index']);
+Route::get('/timeline', ['uses' => 'EventsController@index', 'as' => 'events.index']);
 
 Route::group(['prefix' => 'admin'], function()
 {
@@ -30,6 +30,59 @@ Route::group(['prefix' => 'admin'], function()
             Route::get( '/',            ['uses' => 'UsersController@index',  'as' => 'admin.users.index']);
             Route::post('/',            ['uses' => 'UsersController@create', 'as' => 'admin.users.create']);
             Route::get( '/{id}/delete', ['uses' => 'UsersController@delete', 'as' => 'admin.users.delete']);
+        });
+
+        Route::group(['prefix' => 'events'], function() {
+
+            Route::get('/',
+                [
+                    'uses' => 'EventsController@adminIndex',
+                    'as' => 'admin.events.index'
+                ]
+            );
+
+            Route::get('/new',
+                [
+                    'uses' => 'EventsController@getCreate',
+                    'as' => 'admin.events.new'
+                ]
+            );
+            Route::post('/create',
+                [
+                    'uses' => 'EventsController@create',
+                    'as' => 'admin.events.create'
+                ]
+            );
+            Route::get('/{id}/delete',
+                [
+                    'uses' => 'EventsController@delete',
+                    'as' => 'admin.events.delete'
+                ]
+            );
+            Route::get('/{id}/approve',
+                [
+                    'uses' => 'EventsController@approve',
+                    'as' => 'admin.events.approve'
+                ]
+            );
+            Route::get('/{id}/decline',
+                [
+                    'uses' => 'EventsController@decline',
+                    'as' => 'admin.events.decline'
+                ]
+            );
+            Route::get('/{id}/edit',
+                [
+                    'uses' => 'EventsController@edit',
+                    'as' => 'admin.events.edit'
+                ]
+            );
+            Route::post('/{id}/update',
+                [
+                    'uses' => 'EventsController@update',
+                    'as' => 'admin.events.update'
+                ]
+            );
         });
     });
 });

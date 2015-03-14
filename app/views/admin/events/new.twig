@@ -1,0 +1,68 @@
+{% include 'admin/header.twig' %}
+
+<h1>New event</h1>
+
+<form role="form" method="post" action="{{ route('admin.events.create') }}" enctype="multipart/form-data">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Title (en)</label>
+                <input type="text" class="form-control" name="title_en" value="{{ request.post('title_en')}}">
+            </div>
+
+            <div class="form-group">
+                <label>Description (en)</label>
+                <textarea class="form-control" name="description_en">{{ request.post('description_en') }}</textarea>
+            </div>
+
+            <div class="form-group">
+            	<label>Action text (en)</label>
+                <input type="text" class="form-control" name="action_text_en" value="{{ request.post('action_text_en') }}">
+            </div>
+
+            <div class="form-group">
+            	<label>Action URL</label>
+                <input type="text" class="form-control" name="action_url" value="{{ request.post('action_url') }}">
+            </div>
+
+            <div class="form-group">
+            	<label>Type</label>
+                <input type="text" class="form-control" name="type" value="{{ request.post('type') }}">
+            </div>
+
+        </div>
+        <div class="col-md-6">
+        	<div class="form-group">
+                <label>Title (local)</label>
+                <input type="text" class="form-control" name="title_local" value="{{ request.post('title_local') }}">
+            </div>
+
+            <div class="form-group">
+                <label>Description (local)</label>
+                <textarea class="form-control" name="description_local">{{ request.post('description_local') }}</textarea>
+            </div>
+
+            <div class="form-group">
+            	<label>Action text (local)</label>
+                <input type="text" class="form-control" name="action_text_local" value="{{ request.post('action_text_local') }}">
+            </div>
+
+            <div class="form-group">
+            	<label>Event date</label>
+                <input type="text" class="form-control" name="event_date" value="{{ request.post('event_date') }}">
+            </div>
+
+            <div class="form-group">
+            	<label>Slug</label>
+                <input type="text" class="form-control" name="slug" value="{{ request.post('slug') }}">
+            </div>
+
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-default">Create</button>
+
+</form>
+
+{% include 'admin/footer.twig' %}

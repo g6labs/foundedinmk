@@ -9,6 +9,7 @@ class Event extends Model
     protected $table = "events";
 
     protected $fillable = [
+    	"type",
     	"title_en",
     	"title_local",
     	"description_en",
