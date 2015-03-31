@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'model' => 'G6\FoundedInMk\User',
+	'model' => 'G6\FoundedInMk\Users\User',
 
 	/*
 	|--------------------------------------------------------------------------

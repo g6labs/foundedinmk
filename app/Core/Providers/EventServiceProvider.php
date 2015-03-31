@@ -1,4 +1,6 @@
-<?php namespace G6\FoundedInMk\Providers;
+<?php
+
+namespace G6\FoundedInMk\Core\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;

@@ -2,7 +2,7 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
-use G6\FoundedInMk\Entities\Startup;
+use G6\FoundedInMk\Startups\Startup;
 
 class AdminController extends Controller
 {

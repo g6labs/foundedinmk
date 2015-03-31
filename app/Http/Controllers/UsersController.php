@@ -2,7 +2,7 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
-use G6\FoundedInMk\Entities\User;
+use G6\FoundedInMk\Users\User;
 
 class UsersController extends Controller
 {
@@ -16,7 +16,7 @@ class UsersController extends Controller
     public function create()
     {
         $data = \Input::all();
-        $data['password'] = Hash::make($data['password']);
+        $data['password'] = \Hash::make($data['password']);
         $user = User::create($data);
 
         return \Redirect::route('admin.users.index');

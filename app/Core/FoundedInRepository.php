@@ -1,4 +1,6 @@
-<?php namespace G6\FoundedInMk\Repositories;
+<?php
+
+namespace G6\FoundedInMk\Core;
 
 abstract class FoundedInRepository
 {

@@ -38,7 +38,7 @@ $app->singleton(
 
 $app->singleton(
 	'Illuminate\Contracts\Debug\ExceptionHandler',
-	'G6\FoundedInMk\Exceptions\Handler'
+	'G6\FoundedInMk\Core\Exceptions\Handler'
 );
 
 /*

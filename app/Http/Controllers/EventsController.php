@@ -2,9 +2,9 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
-use G6\FoundedInMk\Entities\Event;
-use G6\FoundedInMk\Entities\User;
-use G6\FoundedInMk\Repositories\EventsRepository;
+use G6\FoundedInMk\Events\Event;
+use G6\FoundedInMk\Users\User;
+use G6\FoundedInMk\Events\Repositories\EventsRepository;
 
 class EventsController extends Controller
 {
@@ -58,10 +58,10 @@ class EventsController extends Controller
             //$data['message'] = "Please enter valid information";
             $data['message'] = $validator->messages()->first();
 
-            return Redirect::route('admin.events.new')->withErrors($validator)->withInput($input);
+            return \Redirect::route('admin.events.new')->withErrors($validator)->withInput($input);
         }
 
-        $input['slug'] = Input::has('slug') ?: $this->generateSlug($input['title_en']);
+        $input['slug'] = \Input::has('slug') ?: $this->generateSlug($input['title_en']);
 
         $startup = Event::create($input);
 

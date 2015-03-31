@@ -1,4 +1,6 @@
-<?php namespace G6\FoundedInMk\Providers;
+<?php
+
+namespace G6\FoundedInMk\Core\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;

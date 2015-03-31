@@ -145,11 +145,11 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'G6\FoundedInMk\Providers\AppServiceProvider',
-		'G6\FoundedInMk\Providers\BusServiceProvider',
-		'G6\FoundedInMk\Providers\ConfigServiceProvider',
-		'G6\FoundedInMk\Providers\EventServiceProvider',
-		'G6\FoundedInMk\Providers\RouteServiceProvider',
+		'G6\FoundedInMk\Core\Providers\AppServiceProvider',
+		'G6\FoundedInMk\Core\Providers\BusServiceProvider',
+		'G6\FoundedInMk\Core\Providers\ConfigServiceProvider',
+		'G6\FoundedInMk\Core\Providers\EventServiceProvider',
+		'G6\FoundedInMk\Core\Providers\RouteServiceProvider',
 
 	],
 

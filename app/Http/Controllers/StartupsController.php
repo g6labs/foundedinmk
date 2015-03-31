@@ -2,7 +2,7 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
-use G6\FoundedInMk\Entities\Startup;
+use G6\FoundedInMk\Startups\Startup;
 
 class StartupsController extends Controller
 {
@@ -125,7 +125,7 @@ class StartupsController extends Controller
     public function update($id)
     {
         $startup = Startup::find($id);
-        $startup->fill(Input::all());
+        $startup->fill(\Input::all());
 
         if (\Input::hasFile('logo')) {
             $logo = \Input::file('logo');

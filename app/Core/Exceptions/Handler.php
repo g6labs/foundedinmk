@@ -1,4 +1,6 @@
-<?php namespace G6\FoundedInMk\Exceptions;
+<?php
+
+namespace G6\FoundedInMk\Core\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

@@ -1,6 +1,6 @@
 <?php
 
-namespace G6\FoundedInMk\Entities;
+namespace G6\FoundedInMk\Startups;
 
 use Illuminate\Database\Eloquent\Model;
 

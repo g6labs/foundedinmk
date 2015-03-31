@@ -2,8 +2,8 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
-use G6\FoundedInMk\Entities\Startup;
-use G6\FoundedInMk\Entities\User;
+use G6\FoundedInMk\Startups\Startup;
+use G6\FoundedInMk\Users\User;
 
 class PublicController extends Controller
 {
@@ -37,7 +37,7 @@ class PublicController extends Controller
             //$data['message'] = "Please enter valid information";
             $data['message'] = $validator->messages()->first();
 
-            return Response::json($data);
+            return \Response::json($data);
         }
 
         $input['founded'] = $input['year_founded'];

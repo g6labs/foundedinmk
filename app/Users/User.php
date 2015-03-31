@@ -1,6 +1,6 @@
 <?php
 
-namespace G6\FoundedInMk\Entities;
+namespace G6\FoundedInMk\Users;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableInterface;

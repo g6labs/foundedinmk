@@ -1,4 +1,6 @@
-<?php namespace G6\FoundedInMk\Providers;
+<?php
+
+namespace G6\FoundedInMk\Core\Providers;
 
 use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -15,6 +17,8 @@ class BusServiceProvider extends ServiceProvider {
 	{
 		$dispatcher->mapUsing(function($command)
 		{
+            /* @todo Change the way of mapping */
+
 			return Dispatcher::simpleMapping(
 				$command, 'G6\FoundedInMk\Commands', 'G6\FoundedInMk\Handlers\Commands'
 			);
