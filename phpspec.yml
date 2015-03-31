@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: G6\FoundedInMk
+        psr4_prefix: G6\FoundedInMk
+        src_path: app

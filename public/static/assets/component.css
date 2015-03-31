@@ -1,0 +1,233 @@
+.cbp-rfgrid {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    width: 90%;
+}
+
+.cbp-rfgrid li {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 20%; /* Fallback */
+    width: -webkit-calc(100% / 5);
+    width: calc(100% / 5);
+}
+
+.cbp-rfgrid2 li {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 20%; /* Fallback */
+    width: -webkit-calc(100% / 4);
+    width: calc(100% / 4);
+}
+
+.cbp-rfgrid li a,
+.cbp-rfgrid li a img {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background:none;
+}
+
+.cbp-rfgrid li a img {
+    max-width: 100%;
+}
+
+/* Flexbox is used for centering the heading */
+.cbp-rfgrid li a div {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    -webkit-border-radius: 0.250em;
+    -moz-border-radius: 0.250em;
+    border-radius: 0.250em;
+    background: rgba(191, 28, 34, 0.7);
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: opacity .2s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+}
+
+.cbp-rfgrid li a:hover div {
+    opacity: 1;
+}
+
+.cbp-rfgrid li a div h3 {
+    width: 100%;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 2px;
+    padding: 0 10px;
+}
+
+/* Example for media query: change number of items per row */
+
+@media screen and (max-width: 1190px) {
+    .cbp-rfgrid li {
+        width: 20%; /* Fallback */
+        width: -webkit-calc(100% / 5);
+        width: calc(100% / 5);
+    }
+}
+@media screen and (max-width: 1190px) {
+    .cbp-rfgrid2 li {
+        width: 20%; /* Fallback */
+        width: -webkit-calc(100% / 4);
+        width: calc(100% / 4);
+    }
+}
+
+@media screen and (max-width: 945px) {
+    .cbp-rfgrid li {
+        width: 25%; /* Fallback */
+        width: -webkit-calc(100% / 4);
+        width: calc(100% / 4);
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .cbp-rfgrid li {
+        width: 33.3333333%; /* Fallback */
+        width: -webkit-calc(100% / 3);
+        width: calc(100% / 3);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cbp-rfgrid li {
+        width: 50%; /* Fallback */
+        width: -webkit-calc(100% / 2);
+        width: calc(100% / 2);
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .cbp-rfgrid li {
+        width: 100%;
+    }
+}
+
+
+
+
+
+/* General styles for all menus */
+.cbp-spmenu {
+    background: #d64a1c;
+    position: fixed;
+}
+
+.cbp-spmenu h3 {
+    color: #ffffff;
+    font-size: 1.9em;
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.cbp-spmenu a {
+    display: block;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 300;
+    text-decoration:none;
+    -webkit-border-radius: 0em;
+    -moz-border-radius: 0em;
+    border-radius: 0em;
+}
+
+.cbp-spmenu a.current {
+    background: #ef5624;
+}
+
+.cbp-spmenu a:hover {
+    background: #bf1c22;
+}
+
+.cbp-spmenu a:active {
+    background: #bf1c22;
+    color: #fff;
+}
+
+/* Orientation-dependent styles for the content of the menu */
+
+.cbp-spmenu-vertical {
+    width: 240px;
+    height: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.cbp-spmenu-vertical a {
+    border-bottom: 1px solid #ef5624;
+    padding: 1em;
+}
+
+/* Vertical menu that slides from the left or right */
+
+.cbp-spmenu-right {
+    right: -240px;
+}
+
+.cbp-spmenu-right.cbp-spmenu-open {
+    right: 0px;
+}
+
+/* Push classes applied to the body */
+
+.cbp-spmenu-push {
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+}
+
+.cbp-spmenu-push-toleft {
+    left: -240px;
+}
+
+/* Transitions */
+
+.cbp-spmenu,
+.cbp-spmenu-push {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Example media queries */
+
+@media screen and (max-height: 26.375em){
+
+    .cbp-spmenu-vertical {
+        font-size: 90%;
+        width: 190px;
+    }
+
+    .cbp-spmenu-left,
+    .cbp-spmenu-push-toleft {
+        left: -190px;
+    }
+
+    .cbp-spmenu-right {
+        right: -190px;
+    }
+
+    .cbp-spmenu-push-toright {
+        left: 190px;
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "FoundedInMk",
+  "homepage": "https://github.com/g6labs/foundedinmk",
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "jquery": "~2.1.1",
+    "components-font-awesome": "~4.2.0",
+    "modernizr": "~2.8.3"
+  }
+}
