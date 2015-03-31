@@ -1,3 +1,5 @@
+#This version is DEPRECATED. Please use the master branch istead.
+
 #Founded in Macedonia
 Developed at [G6](http://g6solutions.com)
 
