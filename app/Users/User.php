@@ -2,11 +2,11 @@
 
 namespace G6\FoundedInMk\Users;
 
+use G6\FoundedInMk\Core\Entity;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableInterface;
-use Illuminate\Database\Eloquent\Model;
 
-class User extends Model implements AuthenticatableInterface
+class User extends Entity implements AuthenticatableInterface
 {
     use Authenticatable;
 

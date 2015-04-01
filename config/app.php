@@ -151,6 +151,8 @@ return [
 		'G6\FoundedInMk\Core\Providers\EventServiceProvider',
 		'G6\FoundedInMk\Core\Providers\RouteServiceProvider',
 
+        'G6\FoundedInMk\Startups\Providers\StartupsRepositoryServiceProvider',
+
 	],
 
 	/*

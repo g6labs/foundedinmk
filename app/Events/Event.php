@@ -2,9 +2,9 @@
 
 namespace G6\FoundedInMk\Events;
 
-use Illuminate\Database\Eloquent\Model;
+use G6\FoundedInMk\Core\Entity;
 
-class Event extends Model
+class Event extends Entity
 {
     protected $table = "events";
 

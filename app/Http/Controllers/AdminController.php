@@ -2,14 +2,22 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
-use G6\FoundedInMk\Startups\Startup;
+use G6\FoundedInMk\Startups\Repositories\StartupsRepositoryInterface;
 
 class AdminController extends Controller
 {
+    protected $startups;
+
+    public function __construct(StartupsRepositoryInterface $startups)
+    {
+        $this->startups = $startups;
+    }
+
     public function index()
     {
-        $approved = Startup::where('approved', true)->count();
-        $waiting = Startup::where('approved', false)->count();
+        $approved = $this->startups->countApproved();
+        $waiting = $this->startups->countUnapproved();
+
         return \View::make('admin.index', compact('approved', 'waiting'));
     }
 } 

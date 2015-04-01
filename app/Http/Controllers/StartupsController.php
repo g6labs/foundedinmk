@@ -2,13 +2,21 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
+use G6\FoundedInMk\Startups\Repositories\StartupsRepositoryInterface;
 use G6\FoundedInMk\Startups\Startup;
 
 class StartupsController extends Controller
 {
+    protected $startups;
+
+    public function __construct(StartupsRepositoryInterface $startups)
+    {
+        $this->startups = $startups;
+    }
+
     public function index()
     {
-        $startups = Startup::all();
+        $startups = $this->startups->all();
 
         return \View::make('admin.startups.index', compact('startups'));
     }
@@ -30,7 +38,7 @@ class StartupsController extends Controller
 
     public function toggleFeatured($id)
     {
-        $startup = Startup::find($id);
+        $startup = $this->startups->get($id);
 
         if (!$startup) {
             $data = [
@@ -42,7 +50,7 @@ class StartupsController extends Controller
         }
 
         $startup->featured = !$startup->featured;
-        $startup->save();
+        $this->startups->store($startup);
 
         $data = [
             "status" => "success",
@@ -54,7 +62,7 @@ class StartupsController extends Controller
 
     public function approve($id)
     {
-        $startup = Startup::find($id);
+        $startup = $this->startups->get($id);
 
         if (!$startup) {
             $data = [
@@ -66,7 +74,7 @@ class StartupsController extends Controller
         }
 
         $startup->approved = true;
-        $startup->save();
+        $this->startups->store($startup);
 
         $data = [
             "status" => "success",
@@ -86,7 +94,7 @@ class StartupsController extends Controller
 
     public function decline($id)
     {
-        $startup = Startup::find($id);
+        $startup = $this->startups->get($id);
 
         if (!$startup) {
             $data = [
@@ -97,7 +105,7 @@ class StartupsController extends Controller
             return \Response::json($data);
         }
 
-        $startup->delete();
+        $this->startups->destroy($startup->id);
 
         $data = [
             "status" => "success",
@@ -117,14 +125,14 @@ class StartupsController extends Controller
 
     public function edit($id)
     {
-        $startup = Startup::find($id);
+        $startup = $this->startups->get($id);
 
         return \View::make('admin.startups.edit', compact('startup'));
     }
 
     public function update($id)
     {
-        $startup = Startup::find($id);
+        $startup = $this->startups->get($id);
         $startup->fill(\Input::all());
 
         if (\Input::hasFile('logo')) {
@@ -135,8 +143,7 @@ class StartupsController extends Controller
             $startup->logo = $startupNameHash . "/". $fileName;
         }
 
-
-        $startup->save();
+        $this->startups->store($startup);
 
         return \Redirect::route('admin.startups.index');
 
