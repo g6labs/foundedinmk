@@ -2,13 +2,21 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
+use G6\FoundedInMk\Users\Repositories\UsersRepositoryInterface;
 use G6\FoundedInMk\Users\User;
 
 class UsersController extends Controller
 {
+    protected $users;
+
+    public function __construct(UsersRepositoryInterface $users)
+    {
+        $this->users = $users;
+    }
+
     public function index()
     {
-        $users = User::all();
+        $users = $this->users->all();
 
         return \View::make('admin.users.index', compact('users'));
     }
@@ -24,7 +32,8 @@ class UsersController extends Controller
 
     public function delete($id)
     {
-        User::destroy($id);
+        $this->users->destroy($id);
+
         return \Redirect::route('admin.users.index');
     }
 } 

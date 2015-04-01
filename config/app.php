@@ -152,6 +152,7 @@ return [
 		'G6\FoundedInMk\Core\Providers\RouteServiceProvider',
 
         'G6\FoundedInMk\Startups\Providers\StartupsRepositoryServiceProvider',
+        'G6\FoundedInMk\Users\Providers\UsersRepositoryServiceProvider',
 
 	],
 
