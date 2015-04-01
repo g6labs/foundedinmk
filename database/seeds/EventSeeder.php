@@ -1,6 +1,6 @@
 <?php
 
-use G6\FoundedInMk\Events\Event;
+use G6\FoundedInMk\Timeline\Event;
 use Illuminate\Database\Seeder;
 
 class EventSeeder extends Seeder

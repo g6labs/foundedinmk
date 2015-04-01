@@ -2,9 +2,9 @@
 
 namespace G6\FoundedInMk\Http\Controllers;
 
-use G6\FoundedInMk\Events\Event;
+use G6\FoundedInMk\Timeline\Event;
 use G6\FoundedInMk\Users\User;
-use G6\FoundedInMk\Events\Repositories\EventsRepository;
+use G6\FoundedInMk\Timeline\Repositories\EventsRepository;
 
 class EventsController extends Controller
 {

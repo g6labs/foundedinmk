@@ -1,6 +1,6 @@
 <?php
 
-namespace G6\FoundedInMk\Events;
+namespace G6\FoundedInMk\Timeline;
 
 use G6\FoundedInMk\Core\Entity;
 
